@@ -1,0 +1,49 @@
+DER - CLINICA
+
+SALA
+PK Numero_Sala
+Andar
+   |
+   | 1:N
+   v
+CONSULTAS
+PK Codigo_Consulta
+Data_Horario
+FK CRM
+FK RG
+FK Numero_Sala
+   ^             ^
+   |             |
+ 1:N             1:N
+   |             |
+MEDICOS       PACIENTES
+PK CRM        PK RG
+Nome          Nome
+Idade         Data_Nascimento
+Especialidade Cidade
+CPF           Doenca
+Data_Admissao Plano_Saude
+
+MEDICOS N:N SALA
+        |
+        v
+MEDICO_SALA
+PK/FK CRM
+PK/FK Numero_Sala
+
+FUNCIONARIOS
+PK Matricula
+Nome
+Data_Nascimento
+Data_Admissao
+Cargo
+Salario
+
+OBSERVACAO DE MODELAGEM
+O material informa MEDICOS -- ATENDE -- SALA, MEDICOS -- REALIZA -- CONSULTA
+e CONSULTA -- FAZ -- PACIENTE, mas nao fornece cardinalidades textuais.
+Por isso, a cardinalidade N:N entre MEDICOS e SALA foi adotada como
+hipotese de modelagem e implementada por MEDICO_SALA.
+
+FUNCIONARIOS foi mantida sem relacionamento porque o material-base
+nao apresenta relacionamento explicito para essa entidade.

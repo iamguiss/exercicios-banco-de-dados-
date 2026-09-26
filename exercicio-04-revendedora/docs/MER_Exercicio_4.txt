@@ -1,0 +1,71 @@
+MER - REVENDEDORA DE CARROS USADOS
+
+AUTOMOVEL
+- RENAVAM (PK)
+- placa
+- marca
+- modelo
+- ano_fabricacao
+- ano_modelo
+- cor
+- motor
+- numero_portas
+- tipo_combustivel
+- preco
+
+CLIENTE
+- Codigo_Cliente (PK)
+- nome
+- sobrenome
+- telefone
+- rua
+- numero
+- complemento
+- bairro
+- cidade
+- estado
+- CEP
+
+VENDEDOR
+- Codigo_Vendedor (PK)
+- nome
+- sobrenome
+- telefone
+- rua
+- numero
+- complemento
+- bairro
+- cidade
+- estado
+- CEP
+- data_admissao
+- salario_fixo
+
+NEGOCIO
+- Codigo_Negocio (PK)
+- data
+- preco_pago
+- Codigo_Cliente (FK)
+- Codigo_Vendedor (FK)
+- RENAVAM (FK)
+
+RELACIONAMENTOS
+
+CLIENTE 1:N NEGOCIO
+Um cliente pode realizar varios negocios.
+Cada negocio possui um comprador.
+
+VENDEDOR 1:N NEGOCIO
+Um vendedor pode participar de varios negocios.
+Cada negocio possui um vendedor.
+
+AUTOMOVEL 1:0..1 NEGOCIO
+Um automovel pode ainda nao ter sido vendido ou pode aparecer em
+um negocio. A constraint UNIQUE em RENAVAM impede que o mesmo
+automovel seja registrado em mais de um negocio.
+
+DECISAO SOBRE NEGOCIO
+
+Foi utilizado Codigo_Negocio como identificador substituto.
+O material nao define um identificador para NEGOCIO e permite
+essa decisao de modelagem.

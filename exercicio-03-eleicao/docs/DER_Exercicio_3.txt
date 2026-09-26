@@ -1,0 +1,39 @@
+DER - PROCESSO ELEITORAL FICTICIO
+
++------------------+       1:N       +------------------+
+|      CARGO       |-----------------|    CANDIDATO     |
++------------------+                 +------------------+
+| PK Codigo_Cargo  |                 | PK Numero_Cand.  |
+| Nome_Cargo       |                 | Nome             |
+| Salario          |                 | FK Codigo_Cargo  |
+| Numero_Vagas     |                 | FK Codigo_Part.  |
++------------------+                 +------------------+
+                                           |
+                                           | N:1
+                                           |
+                                   +------------------+
+                                   |     PARTIDO      |
+                                   +------------------+
+                                   | PK Codigo_Partido|
+                                   | Sigla            |
+                                   | Nome             |
+                                   | Numero           |
+                                   +------------------+
+
++------------------+       1:N       +------------------+
+|     ELEITOR      |-----------------|       VOTO       |
++------------------+                 +------------------+
+| PK Titulo_Eleitor|                 | PK/FK Titulo...  |
+| Zona_Eleitoral   |                 | PK/FK Numero...  |
+| Sessao_Eleitoral |                 +------------------+
+| Nome             |
++------------------+
+
+CARDINALIDADES
+CARGO 1:N CANDIDATO
+PARTIDO 1:N CANDIDATO
+ELEITOR 1:N VOTO
+CANDIDATO 1:N VOTO
+
+VOTO possui PK composta:
+(Titulo_Eleitor, Numero_Candidato)

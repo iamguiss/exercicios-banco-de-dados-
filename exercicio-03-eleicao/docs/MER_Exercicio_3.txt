@@ -1,0 +1,64 @@
+MER - PROCESSO ELEITORAL FICTICIO
+
+CARGO
+- Codigo_Cargo (PK)
+- Nome_Cargo
+- Salario
+- Numero_Vagas
+
+PARTIDO
+- Codigo_Partido (PK)
+- Sigla
+- Nome
+- Numero
+
+CANDIDATO
+- Numero_Candidato (PK)
+- Nome
+- Codigo_Cargo (FK)
+- Codigo_Partido (FK)
+
+ELEITOR
+- Titulo_Eleitor (PK)
+- Zona_Eleitoral
+- Sessao_Eleitoral
+- Nome
+
+VOTO
+- Titulo_Eleitor (PK, FK)
+- Numero_Candidato (PK, FK)
+
+RELACIONAMENTOS
+
+CARGO 1:N CANDIDATO
+Um cargo pode possuir varios candidatos.
+Cada candidato pertence a um cargo.
+
+PARTIDO 1:N CANDIDATO
+Um partido pode possuir varios candidatos.
+Cada candidato pertence a um partido.
+
+ELEITOR 1:N VOTO
+Um eleitor pode possuir varios registros de voto.
+Cada voto pertence a um eleitor.
+
+CANDIDATO 1:N VOTO
+Um candidato pode receber varios registros de voto.
+Cada voto referencia um candidato.
+
+CHAVE DE VOTO
+
+PK composta:
+(Titulo_Eleitor, Numero_Candidato)
+
+Ela impede a duplicacao do mesmo voto para o mesmo
+eleitor e candidato.
+
+REGRA ADOTADA
+
+O exercicio utiliza uma regra ficticia em que o eleitor pode
+registrar um voto para cada cargo. A PK composta impede apenas
+a duplicacao do mesmo eleitor + candidato. A regra de um voto
+por cargo pode exigir uma validacao adicional (por exemplo,
+trigger) se for necessario impedir dois candidatos do mesmo
+cargo para o mesmo eleitor.

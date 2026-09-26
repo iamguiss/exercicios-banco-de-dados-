@@ -1,0 +1,59 @@
+MER - CLINICA
+
+ENTIDADES
+
+SALA
+- Numero_Sala (PK)
+- Andar
+
+MEDICOS
+- CRM (PK)
+- Nome
+- Idade
+- Especialidade
+- CPF
+- Data_Admissao
+
+PACIENTES
+- RG (PK)
+- Nome
+- Data_Nascimento
+- Cidade
+- Doenca
+- Plano_Saude
+
+FUNCIONARIOS
+- Matricula (PK)
+- Nome
+- Data_Nascimento
+- Data_Admissao
+- Cargo
+- Salario
+
+CONSULTAS
+- Codigo_Consulta (PK)
+- Data_Horario
+- CRM (FK)
+- RG (FK)
+- Numero_Sala (FK)
+
+MEDICO_SALA
+- CRM (PK, FK)
+- Numero_Sala (PK, FK)
+
+RELACIONAMENTOS
+
+MEDICOS N:N SALA
+Implementado pela entidade associativa MEDICO_SALA.
+
+MEDICOS 1:N CONSULTAS
+Um medico pode realizar varias consultas; cada consulta referencia um medico.
+
+PACIENTES 1:N CONSULTAS
+Um paciente pode possuir varias consultas; cada consulta referencia um paciente.
+
+SALA 1:N CONSULTAS
+Uma sala pode aparecer em varias consultas; cada consulta referencia uma sala.
+
+FUNCIONARIOS
+Nao possui relacionamento explicito no material-base.

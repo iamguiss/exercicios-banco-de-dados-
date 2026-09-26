@@ -1,0 +1,36 @@
+DER - CATALOGO MUSICAL
+
+TABELA CD
+PK: cod_cd
+nome
+gravadora
+data
+
+        1
+CD -------------------- N MUSICA
+        contem
+
+TABELA MUSICA
+PK/FK: cod_cd
+PK: numero_musica
+titulo
+FK: cod_cantor
+tempo_segundos
+genero
+
+        N
+MUSICA ---------------- 1 CANTOR
+        interpreta
+
+TABELA CANTOR
+PK: cod_cantor
+nome
+biografia
+
+CHAVES E RELACIONAMENTOS
+
+CD.cod_cd -> MUSICA.cod_cd
+CANTOR.cod_cantor -> MUSICA.cod_cantor
+
+PK composta de MUSICA:
+(cod_cd, numero_musica)

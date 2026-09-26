@@ -1,0 +1,41 @@
+DER - REVENDEDORA DE CARROS USADOS
+
++------------------+       1:N       +------------------+
+|     CLIENTE      |-----------------|     NEGOCIO      |
++------------------+                 +------------------+
+| PK Codigo_Cliente|                 | PK Codigo_Negocio|
+| Nome             |                 | Data_Negocio     |
+| Sobrenome        |                 | Preco_Pago        |
+| Telefone         |                 | FK Codigo_Cliente|
+| Rua              |                 | FK Codigo_Vendedor|
+| Numero           |                 | FK RENAVAM        |
+| Complemento      |                 +------------------+
+| Bairro           |                        ^
+| Cidade           |                        |
+| Estado           |                       | 1:1 (maximo)
+| CEP              |                        |
++------------------+                 +------------------+
+                                     |    AUTOMOVEL     |
++------------------+       1:N       +------------------+
+|    VENDEDOR      |-----------------|                  |
++------------------+                 | PK RENAVAM       |
+| PK Codigo_Vend.  |                 | Placa            |
+| Nome             |                 | Marca            |
+| Sobrenome        |                 | Modelo           |
+| Telefone         |                 | Ano_Fabricacao   |
+| Endereco...      |                 | Ano_Modelo       |
+| Data_Admissao    |                 | Cor              |
+| Salario_Fixo     |                 | Motor            |
++------------------+                 | Numero_Portas    |
+                                     | Tipo_Combustivel |
+                                     | Preco            |
+                                     +------------------+
+
+CARDINALIDADES
+CLIENTE 1:N NEGOCIO
+VENDEDOR 1:N NEGOCIO
+AUTOMOVEL 1:0..1 NEGOCIO
+
+A chave Codigo_Negocio foi escolhida como ID substituto.
+RENAVAM em NEGOCIO e FK + UNIQUE para impedir venda duplicada
+do mesmo automovel.

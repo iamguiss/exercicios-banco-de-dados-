@@ -1,0 +1,38 @@
+MER - CATALOGO MUSICAL
+
+ENTIDADES
+
+CD
+- cod_cd (PK)
+- nome
+- gravadora
+- data
+
+CANTOR
+- cod_cantor (PK)
+- nome
+- biografia
+
+MUSICA
+- cod_cd (PK, FK)
+- numero_musica (PK)
+- titulo
+- cod_cantor (FK)
+- tempo_segundos
+- genero
+
+RELACIONAMENTOS
+
+CD 1:N MUSICA
+- Um CD contem varias musicas.
+- Uma musica pertence a um CD.
+
+CANTOR 1:N MUSICA
+- Um cantor pode interpretar varias musicas.
+- Uma musica possui um cantor.
+
+OBSERVACAO
+A chave primaria de MUSICA e composta por:
+(cod_cd, numero_musica)
+
+cod_cantor NAO e chave primaria de MUSICA. Ele e somente uma chave estrangeira.
